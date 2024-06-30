@@ -55,6 +55,12 @@ class ConfigEditor:
         self.config['tasks']['Fqct']['watchAd'] = self.fqct_watchAd_var.get()
         self.config['tasks']['Fqct']['openBox'] = self.fqct_openBox_var.get()
 
+        self.config['tasks']['Dh']['enabled'] = self.dh_enabled_var.get()
+        self.config['tasks']['Dh']['runDuration'] = int(self.dh_runDuration_var.get())
+        self.config['tasks']['Dh']['sleepDuration'] = int(self.dh_sleepDuration_var.get())
+        self.config['tasks']['Dh']['watchAd'] = self.dh_watchAd_var.get()
+        self.config['tasks']['Dh']['openBox'] = self.dh_openBox_var.get()
+
         self.save_config()
 
     def start(self):
@@ -171,7 +177,25 @@ class ConfigEditor:
         ttk.Checkbutton(fqct_frame, text="看广告", variable=self.fqct_watchAd_var).grid(row=3, column=0, sticky=tk.W)
         ttk.Checkbutton(fqct_frame, text="开箱子", variable=self.fqct_openBox_var).grid(row=4, column=0, sticky=tk.W)
 
-        ttk.Button(self.root, text="启动", command=self.start).grid(row=1, column=0, columnspan=2, pady=10)
+        # Dh Task
+        dh_frame = ttk.LabelFrame(self.root, text="蛋花小说")
+        dh_frame.grid(row=1, column=1, padx=10, pady=10)
+
+        self.dh_enabled_var = tk.BooleanVar(value=self.config['tasks']['Dh']['enabled'])
+        self.dh_runDuration_var = tk.StringVar(value=self.config['tasks']['Dh']['runDuration'])
+        self.dh_sleepDuration_var = tk.StringVar(value=self.config['tasks']['Dh']['sleepDuration'])
+        self.dh_watchAd_var = tk.BooleanVar(value=self.config['tasks']['Dh']['watchAd'])
+        self.dh_openBox_var = tk.BooleanVar(value=self.config['tasks']['Dh']['openBox'])
+
+        ttk.Checkbutton(dh_frame, text="启用", variable=self.dh_enabled_var, ).grid(row=0, column=0, sticky=tk.W)
+        ttk.Label(dh_frame, text="运行时长").grid(row=1, column=0, sticky=tk.W)
+        ttk.Entry(dh_frame, textvariable=self.dh_runDuration_var).grid(row=1, column=1)
+        ttk.Label(dh_frame, text="休眠时长").grid(row=2, column=0, sticky=tk.W)
+        ttk.Entry(dh_frame, textvariable=self.dh_sleepDuration_var).grid(row=2, column=1)
+        ttk.Checkbutton(dh_frame, text="看广告", variable=self.dh_watchAd_var).grid(row=3, column=0, sticky=tk.W)
+        ttk.Checkbutton(dh_frame, text="开箱子", variable=self.dh_openBox_var).grid(row=4, column=0, sticky=tk.W)
+
+        ttk.Button(self.root, text="启动", command=self.start).grid(row=2, column=0, columnspan=2, pady=10)
 
     def run(self):
         self.root.mainloop()

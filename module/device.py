@@ -15,6 +15,7 @@ from .ks import Ks
 from .dy import Dy
 from .hg import Hg
 from .fqct import Fqct
+from .dh import Dh
 from .timer import Timer
 
 class Device:
@@ -175,7 +176,7 @@ class Device:
 
     async def start(self):
         self.logger.info(f"Starting device: {self.serial}")
-        task_classes = {'Hg': Hg, 'Ks': Ks, 'Dy': Dy, "Fqct": Fqct}
+        task_classes = {'Hg': Hg, 'Ks': Ks, 'Dy': Dy, "Fqct": Fqct, "Dh": Dh}
         # {'Ks': Ks, 'Dy': Dy, 'Hg': Hg}
         start_time = datetime.now() + timedelta(seconds=10)
 

@@ -262,17 +262,17 @@ class Fqct:
 
     def on_start(self):
         # if not self.device.is_app_installed(self.packageName):
-        #     self.logger.info(f"{self.device.serial} did not install Ks.")
+        #     self.logger.info(f"{self.device.serial} did not install Fqct.")
         #     self.on_stop()
         #     return
             # if not os.path.exists(self.packageDir):
             #     self.logger.error(f"{self.device.serial} Package path {self.packageDir} does not exist.")
             #     return
-            # self.logger.info(f"{self.device.serial} Installing Ks from {self.packageDir}...")
+            # self.logger.info(f"{self.device.serial} Installing Fqct from {self.packageDir}...")
             # self.device.install_app(self.packageDir)
-            # self.logger.info(f"{self.device.serial} installed Ks.")
+            # self.logger.info(f"{self.device.serial} installed Fqct.")
 
-        self.logger.info(f"{self.device.serial} started the Ks task.")
+        self.logger.info(f"{self.device.serial} started the Fqct task.")
         self.device.close_app(self.packageName)
         self.logger.info(f"{self.device.serial} close {self.packageName}")
         self.random_sleep(2)
