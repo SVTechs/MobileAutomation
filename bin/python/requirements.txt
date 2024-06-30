@@ -71,6 +71,7 @@ pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
 pytz==2024.1
+pywin32==306
 PyYAML==6.0.1
 rapidfuzz==3.9.3
 rarfile==4.2
@@ -95,4 +96,5 @@ urllib3==2.2.1
 visualdl==2.5.3
 Werkzeug==3.0.3
 wheel==0.43.0
+WMI==1.5.1
 xmltodict==0.13.0

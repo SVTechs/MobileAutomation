@@ -168,3 +168,5 @@ screen.png
 selectHelper.py
 !bin/adb
 !bin/adb/**
+bin/python/Scripts/**
+bin/python/share/**
